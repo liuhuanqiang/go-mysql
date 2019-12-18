@@ -51,6 +51,9 @@ func (r *RowsEvent) handleUnsigned() {
 		return
 	}
 
+	fmt.Println(len(r.Rows))
+	fmt.Println(len(r.Table.UnsignedColumns))
+
 	for i := 0; i < len(r.Rows); i++ {
 		for _, columnIdx := range r.Table.UnsignedColumns {
 			switch value := r.Rows[i][columnIdx].(type) {
